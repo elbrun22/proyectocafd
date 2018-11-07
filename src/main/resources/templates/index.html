@@ -1,0 +1,528 @@
+<html xmlns:th="https://www.thymeleaf.com/">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Centro de Actividades Fisicas y Deportivas</title>
+        <meta name="description" content="Free Bootstrap Theme by uicookies.com">
+        <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+
+        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="css/styles-merged.css">
+        <link rel="stylesheet" href="css/style.min.css">
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!--[if lt IE 9]>
+          <script src="js/vendor/html5shiv.min.js"></script>
+          <script src="js/vendor/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <div class="probootstrap-search" id="probootstrap-search">
+            <a href="#" class="probootstrap-close js-probootstrap-close"><i class="icon-cross"></i></a>
+            <form action="#">
+                <input type="search" name="s" id="search" placeholder="Search a keyword and hit enter...">
+            </form>
+        </div>
+
+        <div class="probootstrap-page-wrapper">
+            <!-- Fixed navbar -->
+
+            <div class="probootstrap-header-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-9 col-md-9 col-sm-9 probootstrap-top-quick-contact-info">
+                            <span><i class="icon-location2"></i>Pelegrini 500, Puerto Tirol</span>
+                            <span><i class="icon-phone2"></i>+54 362-4546363</span>
+                            <span><i class="icon-mail"></i>CAFD@gmail.com</span>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 probootstrap-top-social">
+                            <ul>
+                                <li><a href="#"><i class="icon-twitter"></i></a></li>
+                                <li><a href="https://web.facebook.com/CentroDeActividadFisicaDeportiva/"><i class="icon-facebook2"></i></a></li>
+                                <li><a href="#"><i class="icon-instagram2"></i></a></li>
+                                <li><a href="#"><i class="icon-youtube"></i></a></li>
+                                <li><a href="#" class="probootstrap-search-icon js-probootstrap-search"><i class="icon-search"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-default probootstrap-navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <div class="btn-more js-btn-more visible-xs">
+                            <a href="#"><i class="icon-dots-three-vertical "></i></a>
+                        </div>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html" title="CAFD">Enlight</a>
+                    </div>
+
+                    <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="index.html">Home</a></li>
+                            <li><a href="courses.html">Cursos</a></li>
+                            <li><a href="teachers.html">Profesores</a></li>
+                            <li><a href="events.html">Eventos</a></li>
+
+                            <li><a href="contact.html">Contacto</a></li>
+
+
+                            <li class="dropdown">
+                                <a href="http://phpoll.com/login" class="dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
+                                <ul class="dropdown-menu dropdown-lr animated slideInRight" role="menu">
+                                    <div class="col-lg-12">
+                                        <div class="text-center"><h3><b>Login</b></h3></div>
+                                        <p th:if="${invalidCredentials}" class="error" style="color: red">Nombre o Contraseña Incorrecto</p>
+                                        <form th:action ="@{/login}" th:object="${LoginForm}" method="post">
+                                            <div class="form-group">
+                                                <label for="username">Nombre</label>
+                                                <input type="text" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Ingrese Nombre" value="" autocomplete="off">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="password">Contraseña</label>
+                                                <input type="password" name="contraseña" id="contraseña" tabindex="2" class="form-control" placeholder="Ingrese Contraseña" autocomplete="off">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-xs-5 pull-left">
+                                                    <input type="submit"  class="btn btn-success" value="Entrar">
+                                                </div>
+
+                                            </div>
+
+
+                                        </form>
+                                </ul>
+                                </div>
+
+                                </div>
+                                </nav>
+
+                                
+
+                                <section class="probootstrap-section probootstrap-section-colored">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 text-left section-heading probootstrap-animate">
+                                                <h2>Bienvenido a la Escuela</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="probootstrap-section">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="probootstrap-flex-block">
+                                                    <div class="probootstrap-text probootstrap-animate">
+                                                        <h3>Acerca de la Escuela</h3>
+                                                        <p>Es una escuela creada con el mas moderno método pedagógico-didáctico destinada a las personas ,que necesitan de actividad física para una mejor calidad de vida.</p>
+                                                        <p><a href="#" class="btn btn-primary">Leer mas</a></p>
+                                                    </div>
+                                                    <video width="650" height="400" controls>
+                                                        <source src="/img/Centro de Actividad Física  Deportiva added a cover video.mp4" type="video/mp4">
+                                                        Your browser does not support the <code>video</code> tag.
+                                                    </video>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                <section class="flexslider">
+                                    <ul class="slides">
+                                        <li style="background-image: url(img/slider_1.jpg)" class="overlay">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-8 col-md-offset-2">
+                                                        <div class="probootstrap-slider-text text-center">
+                                                            <h1 class="probootstrap-heading probootstrap-animate">Tu futuro brillante es nuestra misión</h1>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li style="background-image: url(img/slider_2.jpg)" class="overlay">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-8 col-md-offset-2">
+                                                        <div class="probootstrap-slider-text text-center">
+                                                            <h1 class="probootstrap-heading probootstrap-animate">La eduacion es vida</h1>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </li>
+                                        <li style="background-image: url(img/slider_3.jpg)" class="overlay">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-md-8 col-md-offset-2">
+                                                        <div class="probootstrap-slider-text text-center">
+                                                            <h1 class="probootstrap-heading probootstrap-animate">Ayudando a cada uno de nuestros estudiantes a alcanzar el potencial</h1>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </section>
+                
+                                    <section class="probootstrap-section" id="probootstrap-counter">
+                                        <div class="container">
+
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
+                                                    <div class="probootstrap-counter-wrap">
+                                                        <div class="probootstrap-icon">
+                                                            <i class="icon-users2"></i>
+                                                        </div>
+                                                        <div class="probootstrap-text">
+                                                            <span class="probootstrap-counter">
+                                                                <span class="js-counter" data-from="0" data-to="200" data-speed="5000" data-refresh-interval="50">1</span>
+                                                            </span>
+                                                            <span class="probootstrap-counter-label">Estudiantes</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
+                                                    <div class="probootstrap-counter-wrap">
+                                                        <div class="probootstrap-icon">
+                                                            <i class="icon-user-tie"></i>
+                                                        </div>
+                                                        <div class="probootstrap-text">
+                                                            <span class="probootstrap-counter">
+                                                                <span class="js-counter" data-from="0" data-to="15" data-speed="5000" data-refresh-interval="50">1</span>
+                                                            </span>
+                                                            <span class="probootstrap-counter-label">Maestros</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
+
+                                                    <div class="probootstrap-counter-wrap">
+                                                        <div class="probootstrap-icon">
+                                                            <i class="icon-smile2"></i>
+                                                        </div>
+                                                        <div class="probootstrap-text">
+                                                            <span class="probootstrap-counter">
+                                                                <span class="js-counter" data-from="0" data-to="100" data-speed="5000" data-refresh-interval="50">1</span>%
+                                                            </span>
+                                                            <span class="probootstrap-counter-label">Satisfaction de los alumnos</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <section class="probootstrap-section probootstrap-section-colored probootstrap-bg probootstrap-custom-heading probootstrap-tab-section" style="background-image: url(img/slider_2.jpg)">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12 text-center section-heading probootstrap-animate">
+                                                    <h2 class="mb0">Informaciones</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="probootstrap-tab-style-1">
+                                            <ul class="nav nav-tabs probootstrap-center probootstrap-tabs no-border">
+                                                <li class="active"><a data-toggle="tab" href="#featured-news">Noticias</a></li>
+                                                <li><a data-toggle="tab" href="#upcoming-events">Eventos</a></li>
+                                            </ul>
+                                        </div>
+                                    </section>
+
+
+                                    <div  class="container">
+                                        <div  class="row">
+                                            <div  class="col-md-12">
+
+                                                <div  class="tab-content">
+
+                                                    <div   class="tab-pane fade in active">
+                                                        <div  class="row">
+                                                            <div  class="col-md-12">
+                                                                <div  class="owl-carousel" id="owl1">
+                                                                    <div th:each="e: ${eventos}" class="item">
+                                                                        <a href="#" class="probootstrap-featured-news-box">
+                                                                            <figure class="probootstrap-media"><img src="img/consultorio.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></figure>
+                                                                            <div  class="probootstrap-text">
+                                                                                <h3 th:text="${e.nom}"></h3>
+                                                                                <p th:text="${e.descripcion}"></p>
+                                                                                <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
+                                                                            </div>
+                                                                    </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- END row -->
+                                    </div>
+
+
+                                    <section class=" probootstrap-bg-white probootstrap-border-top">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-6 col-md-offset-3 text-center  probootstrap-animate">
+                                                    <h2>Nuestras Disiplinas</h2>
+
+                                                </div>
+                                            </div>
+                                            <!-- END row -->
+                                            <div class="row">
+                                                <div th:each="c: ${clases}" class="col-md-6">
+                                                    <div class="probootstrap-service-2 probootstrap-animate">
+                                                        <div class="image">
+                                                            <div class="image-bg">
+                                                                <img src="img/relajacion.jpg" alt="Meditacion, Relajacion">
+                                                            </div>
+                                                        </div>
+                                                        <div  class="text">
+                                                            <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span>
+                                                            <h3 th:text="${c.nom}"></h3>
+                                                            <p th:text="${c.descrip}"></p>
+                                                            <p><a href="#" class="btn btn-primary">Incribirse ahora</a> <span class="enrolled-cIncribirseount">10 estudiantes inscriptos</span></p>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </section>
+
+                                    <section class="probootstrap-section">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
+                                                    <h2>Nuestros Profesores</h2>
+                                                    <p class="lead">Sed a repudiandae impedit voluptate nam Deleniti dignissimos perspiciatis nostrum porro nesciunt</p>
+                                                </div>
+                                            </div>
+                                            <!-- END row -->
+
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-6">
+                                                    <div class="probootstrap-teacher text-center probootstrap-animate">
+                                                        <figure class="media">
+                                                            <img src="img/person_1.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive">
+                                                        </figure>
+                                                        <div class="text">
+                                                            <h3>Chris Worth</h3>
+                                                            <p>Physical Education</p>
+                                                            <ul class="probootstrap-footer-social">
+                                                                <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
+                                                                <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
+                                                                <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
+                                                                <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-sm-6">
+                                                    <div class="probootstrap-teacher text-center probootstrap-animate">
+                                                        <figure class="media">
+                                                            <img src="img/person_5.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive">
+                                                        </figure>
+                                                        <div class="text">
+                                                            <h3>Janet Morris</h3>
+                                                            <p>English Teacher</p>
+                                                            <ul class="probootstrap-footer-social">
+                                                                <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
+                                                                <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
+                                                                <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
+                                                                <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix visible-sm-block visible-xs-block"></div>
+                                                <div class="col-md-3 col-sm-6">
+                                                    <div class="probootstrap-teacher text-center probootstrap-animate">
+                                                        <figure class="media">
+                                                            <img src="img/person_6.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive">
+                                                        </figure>
+                                                        <div class="text">
+                                                            <h3>Linda Reyez</h3>
+                                                            <p>Math Teacher</p>
+                                                            <ul class="probootstrap-footer-social">
+                                                                <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
+                                                                <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
+                                                                <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
+                                                                <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-sm-6">
+                                                    <div class="probootstrap-teacher text-center probootstrap-animate">
+                                                        <figure class="media">
+                                                            <img src="img/person_7.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive">
+                                                        </figure>
+                                                        <div class="text">
+                                                            <h3>Jessa Sy</h3>
+                                                            <p>Physics Teacher</p>
+                                                            <ul class="probootstrap-footer-social">
+                                                                <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
+                                                                <li class="facebook"><a href="#"><i class="icon-facebook2"></i></a></li>
+                                                                <li class="instagram"><a href="#"><i class="icon-instagram2"></i></a></li>
+                                                                <li class="google-plus"><a href="#"><i class="icon-google-plus"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </section>
+                                    <section class="probootstrap-section probootstrap-bg probootstrap-section-colored probootstrap-testimonial" style="background-image: url(img/slider_4.jpg);">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
+                                                    <h2>Testimonio de ex alumnos</h2>
+                                                    <p class="lead">Sed a repudiandae impedit voluptate nam Deleniti dignissimos perspiciatis nostrum porro nesciunt</p>
+                                                </div>
+                                            </div>
+                                            <!-- END row -->
+                                            <div class="row">
+                                                <div class="col-md-12 probootstrap-animate">
+                                                    <div class="owl-carousel owl-carousel-testimony owl-carousel-fullwidth">
+                                                        <div class="item">
+
+                                                            <div class="probootstrap-testimony-wrap text-center">
+                                                                <figure>
+                                                                    <img src="img/person_1.jpg" alt="Free Bootstrap Template by uicookies.com">
+                                                                </figure>
+                                                                <blockquote class="quote">&ldquo;Design must be functional and functionality must be translated into visual aesthetics, without any reliance on gimmicks that have to be explained.&rdquo; <cite class="author"> &mdash; <span>Mike Fisher</span></cite></blockquote>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="item">
+                                                            <div class="probootstrap-testimony-wrap text-center">
+                                                                <figure>
+                                                                    <img src="img/person_2.jpg" alt="Free Bootstrap Template by uicookies.com">
+                                                                </figure>
+                                                                <blockquote class="quote">&ldquo;Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.&rdquo; <cite class="author"> &mdash;<span>Jorge Smith</span></cite></blockquote>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item">
+                                                            <div class="probootstrap-testimony-wrap text-center">
+                                                                <figure>
+                                                                    <img src="img/person_3.jpg" alt="Free Bootstrap Template by uicookies.com">
+                                                                </figure>
+                                                                <blockquote class="quote">&ldquo;I think design would be better if designers were much more skeptical about its applications. If you believe in the potency of your craft, where you choose to dole it out is not something to take lightly.&rdquo; <cite class="author">&mdash; <span>Brandon White</span></cite></blockquote>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END row -->
+                                        </div>
+                                    </section>
+
+                                    <section class="probootstrap-section">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-6 col-md-offset-3 text-center section-heading probootstrap-animate">
+                                                    <h2>Porque elegir CAFD</h2>
+
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="service left-icon probootstrap-animate">
+                                                        <div class="icon"><i class="icon-checkmark"></i></div>
+                                                        <div class="text">
+                                                            <h3>Tecnicas Modernas</h3>
+                                                            <p>...</p>
+                                                        </div>  
+                                                    </div>
+                                                    <div class="service left-icon probootstrap-animate">
+                                                        <div class="icon"><i class="icon-checkmark"></i></div>
+                                                        <div class="text">
+                                                            <h3>Alto impacto Regional</h3>
+                                                            <p>...</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="service left-icon probootstrap-animate">
+                                                        <div class="icon"><i class="icon-checkmark"></i></div>
+                                                        <div class="text">
+                                                            <h3>Horarios Adaptados</h3>
+                                                            <p>...</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="service left-icon probootstrap-animate">
+                                                        <div class="icon"><i class="icon-checkmark"></i></div>
+                                                        <div class="text">
+                                                            <h3>Clases personales y en casa</h3>
+                                                            <p>...</p>
+                                                        </div>  
+                                                    </div>
+
+                                                    <div class="service left-icon probootstrap-animate">
+                                                        <div class="icon"><i class="icon-checkmark"></i></div>
+                                                        <div class="text">
+                                                            <h3>Posibilidades de trabajo</h3>
+                                                            <p>...</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="service left-icon probootstrap-animate">
+                                                        <div class="icon"><i class="icon-checkmark"></i></div>
+                                                        <div class="text">
+                                                            <h3>Seguimiento Personal</h3>
+                                                            <p>...</p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <!-- END row -->
+                                        </div>
+                                    </section>
+
+
+                                    <footer class="probootstrap-footer probootstrap-bg">
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-8 text-left">
+                                                    <p>Centro de Actividades Fisicas y Deportivas</p>
+                                                </div>
+                                                <div class="col-md-4 probootstrap-back-to-top">
+                                                    <p><a href="#" class="js-backtotop">Volver arriba <i class="icon-arrow-long-up"></i></a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </footer>
+
+                                    </div>
+                                    <!-- END wrapper -->
+
+
+                                    <script src="js/scripts.min.js"></script>
+                                    <script src="js/main.min.js"></script>
+                                    <script src="js/custom.js"></script>
+
+                                    </body>
+                                    </html>

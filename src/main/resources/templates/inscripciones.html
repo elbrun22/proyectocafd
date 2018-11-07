@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.com">
+    <head>
+        <title th:text="${titulo}">TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2 th:text="${titulo_tabla}"></h2>
+        <div>
+        <table>
+                  <thead>
+                    <tr>
+                      <th>Alumnos</th>
+                      <th>Clases</th>
+                      <th>Acciones</th>
+                      
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>Alumnos</th>
+                      <th>Clases</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <tr th:each="i : ${inscripciones}">
+                        
+                      <td th:text="${i.alumnos}"></td>
+                      <td th:text="${i.clases}"></td>
+                      <td ></td>
+                      <td ></td>
+                       
+                        
+                    
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+    </body>
+</html>
