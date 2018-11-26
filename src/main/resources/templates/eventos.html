@@ -34,8 +34,8 @@
                                             <td th:text="${e.descripcion}"></td>
 
                                             <td >
-                                                <a   th:href="@{/borrarE/} + ${e.id}" class="btn btn-danger">Borrar</a>
-                                                <a  th:href="@{/formEventos/} + ${e.id}" class="btn btn-warning">Editar</a>
+                                                <a   th:href="@{/borrarE/} + ${e.id}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                                <a  th:href="@{/formEventos/} + ${e.id}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                             </td>
 
                                         </tr>

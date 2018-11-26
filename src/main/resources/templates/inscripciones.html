@@ -120,7 +120,7 @@
                                                             <p>Podes contactarte a traves de este formulario para cordinar <b>horarios y dias.</b> <br>
                                                                 O Enviar un <a href="https://api.whatsapp.com/send?phone=3624906012&text=Hola%20estoy%20interesado%20en%20una%20de%20sus%20clases">WhatsApp</a> <i class="icon-whatsapp"></i></p>
 
-                                                           <div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+                                                            <div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
 
                                                             <form th:action="@{/formInscripciones}" th:object="${inscripciones}" method="post" class="probootstrap-form">
                                                                 <div class="form-group">
@@ -142,7 +142,7 @@
                                                                         <option th:each="c : ${clases}"
                                                                                 th:value="${c.nom}"
                                                                                 th:text="${c.nom}"
-                                                                                
+
                                                                                 ></option>
                                                                     </select>
                                                                 </div>

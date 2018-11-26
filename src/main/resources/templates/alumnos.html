@@ -35,8 +35,8 @@
                                 <td th:text="${a.nom}"></td>
                                 <td th:text="${a.tel}"></td>
                                 <td >
-                                    <a th:href="@{/borrar/} + ${a.id}"  class="btn btn-danger">Borrar</a>
-                                    <a th:href="@{/form/} + ${a.id}" class="btn btn-warning">Editar</a>
+                                    <a th:href="@{/borrar/} + ${a.id}"  class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                    <a th:href="@{/form/} + ${a.id}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                 </td>
 
                             </tr>
