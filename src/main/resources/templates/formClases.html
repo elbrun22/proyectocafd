@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="${titulo}"></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body>
+       <div class="container py-4">
+
+		<div class="card  text-black">
+                    <div class="card-header" style="background-color: #1E90FF" th:text="${titulo}"></div>
+                    <div class="card-body">
+
+				<div th:object="${clase}" th:remove="tag">
+					<ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger"
+						role="alert">
+						<li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+					</ul>
+				</div>
+
+				<form th:action="@{/formClases}" th:object="${clase}" method="post"
+					enctype="multipart/form-data">
+					<div class="form-group row">
+						<label for="Nombre" class="col-sm-2 col-form-label">Nombre</label>
+						<div class="col-sm-6">
+							<input type="text" th:field="*{nom}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></small>
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="Descripcion" class="col-sm-2 col-form-label">Descripcion</label>
+						<div class="col-sm-6">
+							<textarea type="text" th:field="*{descrip}" class="form-control"
+								th:errorclass="'form-control alert-danger'" /></textarea> <small
+								class="form-text text-danger"
+								th:if="${#fields.hasErrors('descrip')}" th:errors="*{descrip}"></small>
+						</div>
+					</div>
+					
+					
+
+					<div class="form-group row">
+						<label for="file" class="col-sm-2 col-form-label">Foto</label>
+						<div class="col-sm-6">
+							<input type="file" name="file" class="form-control" />
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<div class="col-sm-6">
+							<input type="submit" value="Guardar"
+								class="btn btn-secondary" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    </body>
+</html>

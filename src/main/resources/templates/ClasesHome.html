@@ -1,0 +1,178 @@
+<html xmlns:th="https://www.thymeleaf.com/">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Centro de Actividades Fisicas y Deportivas</title>
+    <meta name="description" content="Free Bootstrap Theme by uicookies.com">
+    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles-merged.css">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+
+    <div class="probootstrap-page-wrapper">
+        <!-- Fixed navbar -->
+
+        <div class="probootstrap-header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-9 probootstrap-top-quick-contact-info">
+                        <span><i class="icon-location2"></i>Pelegrini 500, Puerto Tirol</span>
+                        <span><i class="icon-phone2"></i>+54 362-4546363</span>
+                        <span><i class="icon-mail"></i>senseiramirezryuninpo@hotmail.com</span>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 probootstrap-top-social">
+                        <ul>
+                            <li><a href="https://twitter.com/alejandro238209"><i class="icon-twitter"></i></a></li>
+                            <li><a href="https://web.facebook.com/CentroDeActividadFisicaDeportiva/"><i class="icon-facebook2"></i></a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-default probootstrap-navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <div class="btn-more js-btn-more visible-xs">
+                        <a href="#"><i class="icon-dots-three-vertical "></i></a>
+                    </div>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" th:href="@{home}" title="CAFD">CAFD</a>
+                </div>
+
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a th:href="@{home}">Home</a></li>
+                        <li><a th:href="@{ClasesHome}">Clases</a></li>
+                      
+                        <li><a th:href="@{EventosHome}">Eventos</a></li>
+
+                        <li><a href="contact.html">Contacto</a></li>
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-lr animated slideInRight" role="menu">
+                                <div class="col-lg-12">
+                                    <div class="text-center"><h3><b>Login</b></h3></div>
+                                    <p th:if="${invalidCredentials}" class="error" style="color: red">Nombre o Contraseña Incorrecto</p>
+                                    <form th:action ="@{/general}" th:object="${LoginForm}" method="post">
+                                        <div class="form-group">
+                                            <label for="username">Nombre</label>
+                                            <input type="text" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Ingrese Nombre" value="" autocomplete="off">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="password">Contraseña</label>
+                                            <input type="password" name="contraseña" id="contraseña" tabindex="2" class="form-control" placeholder="Ingrese Contraseña" autocomplete="off">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-xs-5 pull-left">
+                                                <input type="submit"  class="btn btn-success" value="Entrar">
+                                            </div>
+
+                                        </div>
+
+
+                                    </form>
+                            </ul>
+                            </div>
+
+                            </div>
+                            </nav>
+
+                            <section class="probootstrap-section probootstrap-section-colored">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 text-left section-heading probootstrap-animate">
+                                            <h1>Clases</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="probootstrap-section">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-15">
+                                            <div class="probootstrap-flex-block">
+                                                <div class="probootstrap-text probootstrap-animate">
+                                                    <div class="text-uppercase probootstrap-uppercase">Clase Destacada</div>
+                                                    <h3>Ejercicios físicos y Rehabilitación para mujeres embarazadas</h3>
+                                                    <p>El embarazo es un buen momento para cuidarse e incorporar o mantener un estilo de vida saludable. Pero existe una creencia de que un embarazo sano es un embarazo “con reposo, sedentario” que a veces llevaría de la mano la inactividad física absoluta. Pero esto, está dejando de ser así. Desde hace mucho tiempo se ha relacionado el buen embarazo y el parto sencillo con el ejercicio físico, Stretching, respiracion y relajación.</p>
+                                                    <p> <i class="icon-user2">Profesional Alejandro Ramirez</i></p>
+                                                </div>
+                                                <video width="500" height="400" controls>
+                                                        <source src="/img/principal clases.mp4" type="video/mp4">
+                                                        Your browser does not support the <code>video</code> tag.
+                                                    </video>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="probootstrap-section">
+                                <div class="container">
+                                    <div class="row">
+                                            <div th:each="c: ${clases}" class="col-md-6">
+                                                <div class="probootstrap-service-2 probootstrap-animate">
+                                                    <div class="image">
+                                                        <div class="image-bg">
+                                                            <img th:src="@{'/uploadsC/' + ${c.foto}}"
+                                                                 th:alt="${c.foto}">
+                                                        </div>
+                                                    </div>
+                                                    <div  class="text">
+                                                        <span class="probootstrap-meta"><i class="icon-calendar2"></i> July 10, 2017</span>
+                                                        <h3 th:text="${c.nom}"></h3>
+                                                        <p th:text="${c.descrip}"></p>
+                                                        <p><a th:href="@{inscripciones}" class="btn btn-primary">Incribirse ahora</a> </p>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                </div>
+                            </section>
+
+                            <footer class="probootstrap-footer probootstrap-bg">
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-8 text-left">
+                                            <p>Rediseñado y Desarrollado  por <a href="https://web.facebook.com/elbrun22">Bruno Conte</a></p>
+                                        </div>
+                                        <div class="col-md-4 probootstrap-back-to-top">
+                                            <p><a href="#" class="js-backtotop">Volver arriba <i class="icon-arrow-long-up"></i></a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </footer>
+
+                            <script src="js/scripts.min.js"></script>
+                            <script src="js/main.min.js"></script>
+                            <script src="js/custom.js"></script>
+                            </body>
+                            </html>

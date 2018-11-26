@@ -44,8 +44,8 @@ public class Alumno {
     @Column(name = "tel")
     private String tel;
     
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "alumnos")
-    private List <Inscripcion> inscripcionesAlumnos;
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "alumnos")
+//    private List <Inscripcion> inscripcionesAlumnos;
     
     
     
@@ -82,13 +82,13 @@ public class Alumno {
     }
 
     
-    public List <Inscripcion> getInscripcionesAlumnos() {
-        return inscripcionesAlumnos;
-    }
-
-    public void setInscripcionesAlumnos(List <Inscripcion> inscripcionesAlumnos) {
-        this.inscripcionesAlumnos = inscripcionesAlumnos;
-    }
+//    public List <Inscripcion> getInscripcionesAlumnos() {
+//        return inscripcionesAlumnos;
+//    }
+//
+//    public void setInscripcionesAlumnos(List <Inscripcion> inscripcionesAlumnos) {
+//        this.inscripcionesAlumnos = inscripcionesAlumnos;
+//    }
     
     
    

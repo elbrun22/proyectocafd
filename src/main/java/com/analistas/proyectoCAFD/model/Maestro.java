@@ -22,6 +22,7 @@ import javax.persistence.Table;
 @Table(name = "maestros")
 public class Maestro {
 
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -33,6 +34,8 @@ public class Maestro {
     private String nom;
     @Column(name = "tel")
     private String tel;
+    @Column(name = "foto")
+    private String foto;
     
     public int getId() {
         return id;
@@ -64,6 +67,13 @@ public class Maestro {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     

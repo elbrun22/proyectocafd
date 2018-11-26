@@ -6,7 +6,9 @@
 package com.analistas.proyectoCAFD.service;
 
 import com.analistas.proyectoCAFD.model.Maestro;
+import java.io.IOException;
 import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -21,4 +23,8 @@ public interface IMaestrosService {
     public void save(Maestro maestros);
     
     public void Borrar(int id);
+    
+    
+    
+    
 }

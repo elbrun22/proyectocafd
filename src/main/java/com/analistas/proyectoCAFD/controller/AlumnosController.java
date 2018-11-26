@@ -30,7 +30,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  *
  * @author matia
  */
-@SessionAttributes("alumnos")
+@SessionAttributes("alumno")
 @Controller
 public class AlumnosController {
 
@@ -42,7 +42,7 @@ public class AlumnosController {
 
         List<Alumno> alumnos = serv.buscarTodo();
 
-        m.put("titulo", "Listado de personas");
+        m.put("titulo", "Listado de alumnos");
         m.put("alumnos", alumnos);
         return "alumnos";
     }
@@ -81,13 +81,15 @@ public class AlumnosController {
     }
 
     @RequestMapping(value = "/form", method = RequestMethod.POST)
-    public String guardar(@Valid Alumno alumno, BindingResult result, Model model, SessionStatus status) {
+    public String guardar(@Valid Alumno alumno, BindingResult result, Model model, SessionStatus status, RedirectAttributes flash) {
 
         if (result.hasErrors()) {
             model.addAttribute("titulo", "Formulario de Alumno");
             return "form";
         }
 
+        flash.addFlashAttribute("warning", "Alumno editado con éxito!");
+        
         serv.save(alumno);
         status.setComplete();
 
@@ -101,7 +103,7 @@ public class AlumnosController {
             Alumno alumno = serv.getOne(id);
 
             serv.Borrar(id);
-            flash.addFlashAttribute("success", "Cliente eliminado con éxito!");
+            flash.addFlashAttribute("success", "Alumno eliminado con éxito!");
 
         }
         return "redirect:/alumnos";

@@ -20,6 +20,8 @@ import javax.persistence.Table;
 @Table(name = "eventos")
 public class Evento {
 
+    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -28,6 +30,8 @@ public class Evento {
     private String nom;
     @Column(name = "descrip")
     private String descripcion;
+    @Column(name = "foto")
+    private String foto;
     
     public int getId() {
         return id;
@@ -53,5 +57,12 @@ public class Evento {
         this.descripcion = descripcion;
     }
     
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
     
 }

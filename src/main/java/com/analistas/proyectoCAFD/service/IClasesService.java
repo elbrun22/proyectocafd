@@ -19,4 +19,6 @@ public interface IClasesService {
     public Clase BuscarPorId(int id);
     
     public void save(Clase clases);
+    
+    public void Borrar(int id);
 }

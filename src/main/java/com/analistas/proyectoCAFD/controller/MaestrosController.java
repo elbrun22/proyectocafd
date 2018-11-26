@@ -7,11 +7,17 @@ package com.analistas.proyectoCAFD.controller;
 
 import com.analistas.proyectoCAFD.model.Maestro;
 import com.analistas.proyectoCAFD.service.IMaestrosService;
+import com.analistas.proyectoCAFD.service.IUploadFileService;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,20 +25,56 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
  * @author Bruno Conte
  */
-@SessionAttributes("maestros")
+@SessionAttributes("maestro")
 @Controller
 public class MaestrosController {
     
     @Autowired
     IMaestrosService serv2;
+    
+    @Autowired
+    IUploadFileService upl;
+    
+    @GetMapping(value = "/uploads/{filename:.+}")
+	public ResponseEntity<Resource> verFoto(@PathVariable String filename) {
+
+		Resource recurso = null;
+
+		try {
+			recurso = upl.load(filename);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return ResponseEntity.ok()
+				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"")
+				.body(recurso);
+	}
+
+	@GetMapping(value = "/ver/{id}")
+	public String ver(@PathVariable(value = "id") Integer id, Map<String, Object> model, RedirectAttributes flash) {
+
+		Maestro maestro = serv2.BuscarPorId(id);
+		if (maestro == null) {
+			flash.addFlashAttribute("error", "El cliente no existe en la base de datos");
+			return "redirect:/maestros";
+		}
+
+		model.put("maestro", maestro);
+		model.put("titulo", "Detalle maestro: " + maestro.getNom());
+		return "ver";
+	}
     
     @GetMapping({"/maestros"})
     public String home(Map m) throws SQLException{
@@ -43,10 +85,7 @@ public class MaestrosController {
         m.put("titulo_tabla", "Listado de Maestros");
         m.put("maestros", lista);
         
-        m.put("cant_carreras", lista.size());
-        
-        
-        
+      
         return "maestros";
     }
     
@@ -84,12 +123,36 @@ public class MaestrosController {
     }
 
     @RequestMapping(value = "/formMaestros", method = RequestMethod.POST)
-    public String guardar(@Valid Maestro maestro, BindingResult result, Model model, SessionStatus status) {
+    public String guardar(@Valid Maestro maestro, BindingResult result, Model model,@RequestParam("file") MultipartFile foto, RedirectAttributes flash, SessionStatus status) {
 
         if (result.hasErrors()) {
             model.addAttribute("titulo", "Formulario de Maestro");
             return "formMaestros";
         }
+        
+        if (!foto.isEmpty()) {
+
+			if (maestro.getId() > 0 && maestro.getFoto() != null
+					&& maestro.getFoto().length() > 0) {
+
+				upl.delete(maestro.getFoto());
+			}
+
+			String uniqueFilename = null;
+			try {
+				uniqueFilename = upl.copy(foto);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			flash.addFlashAttribute("info", "Has subido correctamente '" + uniqueFilename + "'");
+
+			maestro.setFoto(uniqueFilename);
+
+		}
+        
+        flash.addFlashAttribute("warning", "Maestro editado con éxito!");
 
         serv2.save(maestro);
         status.setComplete();

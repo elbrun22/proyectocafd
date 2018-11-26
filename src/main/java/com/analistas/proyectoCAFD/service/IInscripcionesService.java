@@ -20,4 +20,6 @@ public interface IInscripcionesService {
     
     public void save(Inscripcion inscripciones);
     
+    public void Borrar(int id);
+    
 }

@@ -479,7 +479,7 @@ a:hover, a:focus, a:active {
     position: relative;
     width: 160px;
     height: 43px;
-    background: url(../img/logo@2x.png) no-repeat left 100%;
+    background: url(../img/logo@2x.jpg) no-repeat left 100%;
     background-size: cover;
   }
 }

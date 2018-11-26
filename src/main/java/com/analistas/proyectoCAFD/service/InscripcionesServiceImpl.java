@@ -35,9 +35,15 @@ public class InscripcionesServiceImpl implements IInscripcionesService{
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public void save(Inscripcion inscripciones) {
         dao.save(inscripciones);
+    }
+
+    @Override
+    @Transactional
+    public void Borrar(int id) {
+        dao.deleteById(id);
     }
     
 }

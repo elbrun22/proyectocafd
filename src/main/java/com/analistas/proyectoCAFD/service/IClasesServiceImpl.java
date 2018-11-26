@@ -39,5 +39,11 @@ public class IClasesServiceImpl implements IClasesService{
     public void save(Clase clases) {
         dao.save(clases);
     }
+
+    @Override
+    @Transactional
+    public void Borrar(int id) {
+        dao.deleteById(id);
+    }
     
 }
