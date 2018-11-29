@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
+        <link rel="icon" type="image/png" href="/img/icono.png" />
         <title th:text="${titulo}"></title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     </head>
@@ -27,27 +28,27 @@
 						<label for="nombre" class="col-sm-2 col-form-label">Apellido</label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{ape}" class="form-control"
-								th:errorclass="'form-control alert-danger'" /> <small
+								th:errorclass="'form-control alert-danger'" required/> <small
 								class="form-text text-danger"
-								th:if="${#fields.hasErrors('ape')}" th:errors="*{ape}"></small>
+								th:if="${#fields.hasErrors('ape')}" th:errors="*{ape}" ></small>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="apellido" class="col-sm-2 col-form-label">Nombre</label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{nom}" class="form-control"
-								th:errorclass="'form-control alert-danger'" /> <small
+								th:errorclass="'form-control alert-danger'" required/> <small
 								class="form-text text-danger"
-								th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></small>
+								th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" ></small>
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="email" class="col-sm-2 col-form-label">Telefono</label>
 						<div class="col-sm-6">
 							<input type="text" th:field="*{tel}" class="form-control"
-								th:errorclass="'form-control alert-danger'" /> <small
+								th:errorclass="'form-control alert-danger'"  required/> <small
 								class="form-text text-danger"
-								th:if="${#fields.hasErrors('tel')}" th:errors="*{tel}"></small>
+								th:if="${#fields.hasErrors('tel')}" th:errors="*{tel}" ></small>
 						</div>
 					</div>
 					

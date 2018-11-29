@@ -22,6 +22,8 @@
                                             <th>Numero</th>
                                             <th>Nombre</th>
                                             <th>Descripcion</th>
+                                            <th>Fecha</th>
+                                            <th>Lugar</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
@@ -32,7 +34,8 @@
                                                    th:href="@{/verEventos/} + ${e.id}" th:text="${e.id}"></a></td>
                                             <td th:text="${e.nom}"></td>
                                             <td th:text="${e.descripcion}"></td>
-
+                                             <td th:text="${e.fecha}"></td>
+                                              <td th:text="${e.lugar}"></td>
                                             <td >
                                                 <a   th:href="@{/borrarE/} + ${e.id}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                                                 <a  th:href="@{/formEventos/} + ${e.id}" class="btn btn-warning"><i class="fas fa-edit"></i></a>

@@ -43,7 +43,7 @@ public class HomeController {
     @Autowired
     IUploadFileService upl;
     
-    @GetMapping({"/", "/home"})
+    @GetMapping({"/home","/"})
     public String home(Map m) throws SQLException{
         
         List<Evento> lista = serv3.buscarTodo();

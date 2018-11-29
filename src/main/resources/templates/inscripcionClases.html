@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/style.min.css">
         <link rel="stylesheet" href="css/custom.css">
 
-        <link rel="icon" type="image/png" href="/img/icono.png" />
+       <link rel="icon" type="image/png" href="/img/icono.png" />
     </head>
     <body>
 
@@ -32,6 +32,7 @@
                             <ul>
                                 <li><a href="https://twitter.com/alejandro238209"><i class="icon-twitter"></i></a></li>
                                 <li><a href="https://web.facebook.com/CentroDeActividadFisicaDeportiva/"><i class="icon-facebook2"></i></a></li>
+
 
                             </ul>
                         </div>
@@ -55,7 +56,7 @@
 
                     <div id="navbar-collapse" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a th:href="@{home}">Home</a></li>
+                            <li class="active"><a href="index.html">Home</a></li>
                             <li><a th:href="@{ClasesHome}">Clases</a></li>
 
                             <li><a th:href="@{EventosHome}">Eventos</a></li>
@@ -69,34 +70,61 @@
                                 </div>
                                 </nav>
 
-                                <section class="probootstrap-cta">
+                                <section class="probootstrap-section probootstrap-section-colored">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-12 text-left section-heading probootstrap-animate">
-                                                <h1>Eventos</h1>
+                                                <h1 class="mb0">Inscripciones</h1>
                                             </div>
                                         </div>
                                     </div>
                                 </section>
 
-
                                 <section class="probootstrap-section probootstrap-section-sm">
                                     <div class="container">
                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row probootstrap-gutter0">
+                                                    <div class="col-md-12" id="probootstrap-sidebar">
+                                                        <div class="probootstrap-sidebar-inner probootstrap-overlap probootstrap-animate">
+                                                            <h2>Formulario</h2>
+                                                            <p>Podes contactarte a traves de este formulario para coordinar <b>horarios y dias.</b> <br>
+                                                                O Enviar un <a href="https://api.whatsapp.com/send?phone=543624143332&text=Hola%20estoy%20interesado%20en%20una%20de%20sus%20clases">WhatsApp</a> <i class="icon-whatsapp"></i></p>
 
-                                            <div th:each="e: ${eventos}" class="col-md-4 col-sm-6 col-xs-6 col-xxs-12 probootstrap-animate">
-                                                <a href="#" class="probootstrap-featured-news-box">
-                                                    <figure class="probootstrap-media"><img th:src="@{'/uploadsE/' + ${e.foto}}"
-                                                                                            th:alt="${e.foto}"  class="img-responsive"/></figure>
-                                                    <div class="probootstrap-text">
-                                                        <h3 th:text="${e.nom}"></h3>
-                                                        <p th:text="${e.descripcion}"></p>
-                                                        <i class="icon-calendar2"></i> <span th:text="${e.fecha}"></span> <br>
-                                                        <i class="icon-location2"></i> <span th:text="${e.lugar}"></span>
+                                                            <div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+
+                                                            <form th:action="@{/inscripcionClases/}" th:object="${inscripcion}" method="post" class="probootstrap-form">
+                                                                <div class="form-group">
+                                                                    <label for="ape">Apellido</label>
+                                                                    <input type="text" th:field="*{apellido}" class="form-control" required >
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="nom">Nombre</label>
+                                                                    <input type="text" th:field="*{nombre}" class="form-control" required >
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="tel">Telefono</label>
+                                                                    <input type="text" th:field="*{telefono}" class="form-control" required  >
+                                                                </div>
+                                                                 <div class="form-group">
+                                                                    <label for="obs">obs</label>
+                                                                    <input type="text" th:field="*{observacion}" class="form-control" required  >
+                                                                </div>
+                                                                
+                                                                <div class="form-group">
+                                                                    <label for="clase">Clase</label>
+                                                                    <input  th:value="${inscripcion.clases.nom}" class="form-control" disabled  >
+                                                                </div>
+                                                                
+                                                                <div class="form-group">
+                                                                    <input type="submit" class="btn btn-primary btn-lg"  value="Enviar">
+                                                                </div>
+                                                            </form>
+                                                        </div>
                                                     </div>
-                                                </a>
+                                                    
+                                                </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </section>
@@ -120,5 +148,6 @@
                                 <script src="js/scripts.min.js"></script>
                                 <script src="js/main.min.js"></script>
                                 <script src="js/custom.js"></script>
+                                
                                 </body>
                                 </html>

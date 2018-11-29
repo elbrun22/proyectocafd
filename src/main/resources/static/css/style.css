@@ -455,7 +455,7 @@ a:hover, a:focus, a:active {
   top: 24px;
   position: relative;
   width: 160px;
-  height: 43px;
+  height: 53px;
   text-indent: -999999px;
   -webkit-transition: .2s all;
   transition: .2s all;
@@ -478,7 +478,7 @@ a:hover, a:focus, a:active {
   .probootstrap-navbar .navbar-brand {
     position: relative;
     width: 160px;
-    height: 43px;
+    height: 53px;
     background: url(../img/logo@2x.jpg) no-repeat left 100%;
     background-size: cover;
   }

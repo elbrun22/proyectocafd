@@ -22,6 +22,8 @@
                                             <th>Numero</th>
                                             <th>Nombre</th>
                                             <th>Descripcion</th>
+                                            <th>Horario</th>
+                                           
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
@@ -32,7 +34,8 @@
                                                    th:href="@{/verClases/} + ${c.id}" th:text="${c.id}"></a></td>
                                             <td th:text="${c.nom}"></td>
                                             <td th:text="${c.descrip}"></td>
-
+                                             <td th:text="${c.horario}"></td>
+                                              
                                             <td >
                                                 <a   th:href="@{/borrarC/} + ${c.id}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                                                 <a  th:href="@{/formClases/} + ${c.id}" class="btn btn-warning"><i class="fas fa-edit"></i></a>

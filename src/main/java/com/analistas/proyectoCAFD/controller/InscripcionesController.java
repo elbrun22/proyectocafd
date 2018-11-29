@@ -18,8 +18,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -29,6 +31,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  */
 
 @Controller
+
+@SessionAttributes("inscripcion")
 public class InscripcionesController {
     
     @Autowired
@@ -37,23 +41,27 @@ public class InscripcionesController {
     @Autowired
     IClasesService serv4;
     
-    @GetMapping({"/inscripciones"})
-    public String home(Map m) throws SQLException{
+    
+    
+    
+    @GetMapping("/inscripcionClases/{clasesId}")
+    public String inscripcionesclases(@PathVariable(value = "clasesId") Integer clasesId, Map<String, Object> model, RedirectAttributes flash) {
         
-        Inscripcion inscripciones = new Inscripcion();
-       List<Clase> lista = serv4.buscarTodo();
-        m.put("inscripciones", inscripciones);
-        m.put("clases", lista);
+        Clase clases = serv4.BuscarPorId(clasesId);
         
+       Inscripcion inscripcion = new Inscripcion();
+       inscripcion.setClases(clases);
         
-        return "inscripciones";
+        model.put("inscripcion", inscripcion);
+        
+        return "inscripcionClases";
     }
     
     
 
 
     
-    @RequestMapping(value = "/formInscripciones", method = RequestMethod.POST)
+    @RequestMapping(value = "/inscripcionClases/", method = RequestMethod.POST)
     public String guardar(@Valid Inscripcion inscripciones, BindingResult result, Model model, SessionStatus status, RedirectAttributes flash) {
 
        
@@ -63,8 +71,32 @@ public class InscripcionesController {
 
         flash.addFlashAttribute("success", "Su formulario ha sido enviado con éxito!");
         
-        return "redirect:inscripciones";
+        return "redirect:/inscripcionClases";
     }
     
-   
+   @GetMapping({"/inscripciones"})
+    public String lista(Map m) throws SQLException{
+        
+       
+       List<Inscripcion> lista = serv1.buscarTodo();
+        m.put("inscripciones", lista);
+       
+        
+        
+        return "inscripciones";
+    }
+    
+    
+    @RequestMapping(value = "/borrarI/{id}")
+    public String eliminar(@PathVariable(value = "id") int id, RedirectAttributes flash) {
+
+        if (id > 0) {
+            Inscripcion inscripcion = serv1.BuscarPorId(id);
+
+            serv1.Borrar(id);
+            flash.addFlashAttribute("success", "Inscripcion eliminada con éxito!");
+
+        }
+        return "redirect:/inscripciones";
+    }
 }

@@ -5,6 +5,7 @@
  */
 package com.analistas.proyectoCAFD.model;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,19 +21,26 @@ import javax.persistence.Table;
 @Table(name = "eventos")
 public class Evento {
 
-    
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+    
     @Column(name = "nom")
     private String nom;
+    
     @Column(name = "descrip")
     private String descripcion;
+    
+    @Column(name = "fecha")
+    private String fecha;
+    
+    @Column(name = "lugar")
+    private String lugar;
+    
     @Column(name = "foto")
     private String foto;
-    
+
     public int getId() {
         return id;
     }
@@ -56,7 +64,7 @@ public class Evento {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
     public String getFoto() {
         return foto;
     }
@@ -64,5 +72,20 @@ public class Evento {
     public void setFoto(String foto) {
         this.foto = foto;
     }
-    
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
+    }
 }

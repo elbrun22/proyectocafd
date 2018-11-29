@@ -30,7 +30,6 @@ public class Clase {
     
 
     
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id")
@@ -44,10 +43,16 @@ public class Clase {
    
    @Column(name = "foto")
    private String foto;
+   
+   @Column (name = "horario")
+    private String horario;
+   
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "clases")
+    private List<Inscripcion> inscripcion;
     
-    @ManyToOne
-    @JoinColumn(name = "id_inscrip", referencedColumnName = "id")
-    private Inscripcion inscripcion;
+    public void addClases(Inscripcion inscripciones) {
+        inscripcion.add(inscripciones);
+    }
     
     public int getId() {
         return id;
@@ -73,13 +78,7 @@ public class Clase {
         this.descrip = descrip;
     }
 
-    public Inscripcion getInscripcion() {
-        return inscripcion;
-    }
-
-    public void setInscripcion(Inscripcion inscripcion) {
-        this.inscripcion = inscripcion;
-    }
+   
     
     
     public String getFoto() {
@@ -90,8 +89,26 @@ public class Clase {
         this.foto = foto;
     }
 
-    
+    public String getHorario() {
+        return horario;
+    }
 
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public List<Inscripcion> getInscripcion() {
+        return inscripcion;
+    }
+
+    public void setInscripcion(List<Inscripcion> inscripcion) {
+        this.inscripcion = inscripcion;
+    }
+
+@Override
+    public String toString() {
+        return nom;
+    }
     
 
     

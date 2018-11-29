@@ -5,17 +5,11 @@
  */
 package com.analistas.proyectoCAFD.model;
 
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,34 +17,26 @@ import javax.persistence.Table;
  * @author Bruno Conte
  */
 @Entity
-@Table(name = "inscripciones")
-public class Inscripcion {
-
-   
-
-    
-
-    
+@Table(name = "noticias")
+public class Noticia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private int id;
     
-    @Column(name = "ape")
-    private String apellido;
     @Column(name = "nom")
     private String nombre;
-    @Column(name = "tel")
-    private String telefono;
-    @Column (name = "obs")
+    
+    @Column(name = "descrip")
+    private String descripcion;
+    
+    @Column(name = "obs")
     private String observacion;
     
     
-    
-    @ManyToOne
-    @JoinColumn(name = "id_clases", referencedColumnName = "id")
-    private Clase clases;
+    @Column(name = "foto")
+    private String foto;
     
     
     
@@ -62,14 +48,6 @@ public class Inscripcion {
         this.id = id;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -78,12 +56,12 @@ public class Inscripcion {
         this.nombre = nombre;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getObservacion() {
@@ -93,18 +71,15 @@ public class Inscripcion {
     public void setObservacion(String observacion) {
         this.observacion = observacion;
     }
-    
-     public Clase getClases() {
-        return clases;
+
+    public String getFoto() {
+        return foto;
     }
 
-    public void setClases(Clase clases) {
-        this.clases = clases;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
-   
-    @Override
-    public String toString() {
-        return nombre;
-    }
+    
+
     
 }
