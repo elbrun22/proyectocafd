@@ -51,6 +51,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" th:href="@{home}" title="CAFD">CAFD</a>
+                    
                 </div>
 
                 <div id="navbar-collapse" class="navbar-collapse collapse">
@@ -60,7 +61,7 @@
                       
                         <li><a th:href="@{EventosHome}">Eventos</a></li>
 
-                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a th:href="@{galeria}">Galeria</a></li>
 
 
                        
@@ -74,6 +75,7 @@
                                     <div class="row">
                                         <div class="col-md-12 text-left section-heading probootstrap-animate">
                                             <h1>Clases</h1>
+                                            <div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
                                         </div>
                                     </div>
                                 </div>

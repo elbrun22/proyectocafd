@@ -7,9 +7,9 @@
         <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700|Open+Sans" rel="stylesheet">
-        <link rel="stylesheet" href="css/styles-merged.css">
-        <link rel="stylesheet" href="css/style.min.css">
-        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="/css/styles-merged.css">
+        <link rel="stylesheet" href="/css/style.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
 
        <link rel="icon" type="image/png" href="/img/icono.png" />
     </head>
@@ -56,12 +56,12 @@
 
                     <div id="navbar-collapse" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="index.html">Home</a></li>
+                            <li class="active"><a href="@{home}">Home</a></li>
                             <li><a th:href="@{ClasesHome}">Clases</a></li>
 
                             <li><a th:href="@{EventosHome}">Eventos</a></li>
 
-                            <li><a href="contact.html">Contacto</a></li>
+                            <li><a th:href="@{galeria}">Galeria</a></li>
 
 
                            
@@ -106,10 +106,7 @@
                                                                     <label for="tel">Telefono</label>
                                                                     <input type="text" th:field="*{telefono}" class="form-control" required  >
                                                                 </div>
-                                                                 <div class="form-group">
-                                                                    <label for="obs">obs</label>
-                                                                    <input type="text" th:field="*{observacion}" class="form-control" required  >
-                                                                </div>
+                                                                 
                                                                 
                                                                 <div class="form-group">
                                                                     <label for="clase">Clase</label>
@@ -145,9 +142,9 @@
 
                                 </footer>
 
-                                <script src="js/scripts.min.js"></script>
-                                <script src="js/main.min.js"></script>
-                                <script src="js/custom.js"></script>
+                                <script src="/js/scripts.min.js"></script>
+                                <script src="/js/main.min.js"></script>
+                                <script src="/js/custom.js"></script>
                                 
                                 </body>
                                 </html>

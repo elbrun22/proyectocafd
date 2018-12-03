@@ -31,7 +31,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  */
 
 @Controller
-
 @SessionAttributes("inscripcion")
 public class InscripcionesController {
     
@@ -44,10 +43,11 @@ public class InscripcionesController {
     
     
     
-    @GetMapping("/inscripcionClases/{clasesId}")
-    public String inscripcionesclases(@PathVariable(value = "clasesId") Integer clasesId, Map<String, Object> model, RedirectAttributes flash) {
+    
+    @RequestMapping("/inscripcionClases/{id}")
+    public String inscripcionesclases(@PathVariable(value = "id") Integer id, Map<String, Object> model, RedirectAttributes flash) {
         
-        Clase clases = serv4.BuscarPorId(clasesId);
+        Clase clases = serv4.BuscarPorId(id);
         
        Inscripcion inscripcion = new Inscripcion();
        inscripcion.setClases(clases);
@@ -61,7 +61,7 @@ public class InscripcionesController {
 
 
     
-    @RequestMapping(value = "/inscripcionClases/", method = RequestMethod.POST)
+    @RequestMapping(value = "/inscripcionClases", method = RequestMethod.POST)
     public String guardar(@Valid Inscripcion inscripciones, BindingResult result, Model model, SessionStatus status, RedirectAttributes flash) {
 
        
@@ -71,7 +71,7 @@ public class InscripcionesController {
 
         flash.addFlashAttribute("success", "Su formulario ha sido enviado con éxito!");
         
-        return "redirect:/inscripcionClases";
+        return "redirect:/ClasesHome";
     }
     
    @GetMapping({"/inscripciones"})

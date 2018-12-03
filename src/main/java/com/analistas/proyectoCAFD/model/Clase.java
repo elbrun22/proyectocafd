@@ -22,38 +22,34 @@ import javax.persistence.Table;
  *
  * @author Bruno Conte
  */
-
 @Entity
 @Table(name = "clases")
 public class Clase {
 
-    
-
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private int id;
-    
+
     @Column(name = "nom")
     private String nom;
-    
-   @Column(name = "descrip")
+
+    @Column(name = "descrip")
     private String descrip;
-   
-   @Column(name = "foto")
-   private String foto;
-   
-   @Column (name = "horario")
+
+    @Column(name = "foto")
+    private String foto;
+
+    @Column(name = "horario")
     private String horario;
-   
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "clases")
     private List<Inscripcion> inscripcion;
-    
+
     public void addClases(Inscripcion inscripciones) {
         inscripcion.add(inscripciones);
     }
-    
+
     public int getId() {
         return id;
     }
@@ -78,9 +74,6 @@ public class Clase {
         this.descrip = descrip;
     }
 
-   
-    
-    
     public String getFoto() {
         return foto;
     }
@@ -105,14 +98,9 @@ public class Clase {
         this.inscripcion = inscripcion;
     }
 
-@Override
+    @Override
     public String toString() {
         return nom;
     }
-    
 
-    
-    
-    
-    
 }

@@ -61,7 +61,7 @@
 
                             <li><a th:href="@{EventosHome}">Eventos</a></li>
 
-                            <li><a href="contact.html">Contacto</a></li>
+                            <li><a th:href="@{galeria}">Galeria</a></li>
 
 
 
@@ -120,7 +120,7 @@
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="probootstrap-slider-text text-center">
-                                    <h1 class="probootstrap-heading probootstrap-animate">La eduacion es vida</h1>
+                                    <h1 class="probootstrap-heading probootstrap-animate">La actividad fisica es vida</h1>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="probootstrap-slider-text text-center">
-                                    <h1 class="probootstrap-heading probootstrap-animate">Ayudando a cada uno de nuestros estudiantes a alcanzar el potencial</h1>
+                                    <h1 class="probootstrap-heading probootstrap-animate">Ayudando a cada uno de nuestros alumnos a alcanzar el potencial</h1>
                                 </div>
                             </div>
                         </div>
@@ -170,54 +170,20 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="owl-carousel" id="owl1">
-                                            <div class="item">
+                                            <div th:each="n: ${noticias}" class="item">
                                                 <a  class="probootstrap-featured-news-box">
-                                                    <figure class="probootstrap-media"><img src="img/ostiopatia.png" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></figure>
+                                                    <figure class="probootstrap-media"><img th:src="@{'/uploadsN/' + ${n.foto}}"
+                                                                                            th:alt="${n.foto}" class="img-responsive"></figure>
                                                     <div class="probootstrap-text">
-                                                        <h3>Ostiopatia una terapia para descubrir</h3>
-                                                        <p>Tecnica manuales articular, masajes.</p>
-                                                        <span class="probootstrap-date"><i class="icon-users2"></i>Dir. Profesor: Alejandro Ramirez</span>
+                                                        <h3 th:text="${n.nombre}"></h3>
+                                                        <p th:text="${n.descripcion}"></p>
+                                                       <i class="icon-user2"></i> <span th:text="${n.observacion}"></span> <br>
 
                                                     </div>
                                                 </a>
                                             </div>
                                             <!-- END item -->
-                                            <div class="item">
-                                                <a href="#" class="probootstrap-featured-news-box">
-                                                    <figure class="probootstrap-media"><img src="img/consultorio.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></figure>
-                                                    <div class="probootstrap-text">
-                                                        <h3>Meditación, Respiración, Relajación </h3>
-                                                        <p>MCM RCP Técnicas manuales de Cadenas Miofasciales o Musculares, reprogramacion y corrección postural, prevención de dolores periféricos etc..</p>
-                                                        <span class="probootstrap-date"><i class="icon-users2"></i>Dir. Profesor: Alejandro Ramirez</span>
-
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <!-- END item -->
-                                            <div class="item">
-                                                <a href="#" class="probootstrap-featured-news-box">
-                                                    <figure class="probootstrap-media"><img src="img/aerobox.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></figure>
-                                                    <div class="probootstrap-text">
-                                                        <h3>Preparate el 8 de enero arrancamos con aerobox FULL TRAINING</h3>
-                                                        <p>No te lo podes perder</p>
-                                                        <span class="probootstrap-date"><i class="icon-calendar"></i>15 a 16hs / 21 a 22hs</span>
-
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <!-- END item -->
-                                            <div class="item">
-                                                <a href="#" class="probootstrap-featured-news-box">
-                                                    <figure class="probootstrap-media"><img src="img/tabata.jpg" alt="Free Bootstrap Template by uicookies.com" class="img-responsive"></figure>
-                                                    <div class="probootstrap-text">
-                                                        <h3> Atrévete desafiar a TABATA</h3>
-                                                        <p>No sabes lo que es, sólo lo sabrás cuando tomes estas clases.</p>
-                                                        <span class="probootstrap-date"><i class="icon-calendar"></i>July 9, 2017</span>
-
-
-                                                    </div>
-                                                </a>
-                                            </div>
+                                           
                                             <!-- END item -->
                                         </div>
                                     </div>

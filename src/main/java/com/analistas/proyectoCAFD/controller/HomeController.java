@@ -8,9 +8,11 @@ package com.analistas.proyectoCAFD.controller;
 import com.analistas.proyectoCAFD.model.Clase;
 import com.analistas.proyectoCAFD.model.Evento;
 import com.analistas.proyectoCAFD.model.Maestro;
+import com.analistas.proyectoCAFD.model.Noticia;
 import com.analistas.proyectoCAFD.service.IClasesService;
 import com.analistas.proyectoCAFD.service.IEventoService;
 import com.analistas.proyectoCAFD.service.IMaestrosService;
+import com.analistas.proyectoCAFD.service.INoticiasService;
 import com.analistas.proyectoCAFD.service.IUploadFileService;
 import java.net.MalformedURLException;
 import java.sql.SQLException;
@@ -39,6 +41,8 @@ public class HomeController {
     IClasesService serv4;
     @Autowired
     IMaestrosService serv2;
+    @Autowired
+    INoticiasService serv5;
     
     @Autowired
     IUploadFileService upl;
@@ -49,13 +53,23 @@ public class HomeController {
         List<Evento> lista = serv3.buscarTodo();
         List<Clase> lista2 = serv4.buscarTodo();
         List<Maestro> lista3 = serv2.buscarTodo();
+        List<Noticia> lista4 = serv5.buscarTodo();
         m.put("eventos", lista);
         m.put("clases", lista2);
         m.put("maestros", lista3);
+        m.put("noticias", lista4);
         m.put("titulo", "CAFD");
         
         return "index";
     }
+    
+    
+     @GetMapping({"/galeria"})
+    public String galeria(Map m) throws SQLException{
+        
+        return "galeria";
+    }
+    
     
     
 }

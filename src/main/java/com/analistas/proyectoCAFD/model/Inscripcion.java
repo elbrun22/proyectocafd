@@ -26,34 +26,22 @@ import javax.persistence.Table;
 @Table(name = "inscripciones")
 public class Inscripcion {
 
-   
-
-    
-
-    
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private int id;
-    
+
     @Column(name = "ape")
     private String apellido;
     @Column(name = "nom")
     private String nombre;
     @Column(name = "tel")
     private String telefono;
-    @Column (name = "obs")
-    private String observacion;
-    
-    
-    
+
     @ManyToOne
     @JoinColumn(name = "id_clases", referencedColumnName = "id")
     private Clase clases;
-    
-    
-    
+
     public int getId() {
         return id;
     }
@@ -86,25 +74,17 @@ public class Inscripcion {
         this.telefono = telefono;
     }
 
-    public String getObservacion() {
-        return observacion;
-    }
-
-    public void setObservacion(String observacion) {
-        this.observacion = observacion;
-    }
-    
-     public Clase getClases() {
+    public Clase getClases() {
         return clases;
     }
 
     public void setClases(Clase clases) {
         this.clases = clases;
     }
-   
+
     @Override
     public String toString() {
         return nombre;
     }
-    
+
 }
